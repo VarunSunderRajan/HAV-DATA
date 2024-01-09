@@ -10,7 +10,7 @@ const LandingPage = () => {
       </header>
       <main>
         <p>Discover amazing things with our awesome platform!</p>
-        <Link to="/signin">
+        <Link to="/sign-in">
           <button>Sign In</button>
         </Link>
       </main>
