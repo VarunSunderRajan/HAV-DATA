@@ -24,7 +24,7 @@ const SignIn = () => {
       // Implement sign-in logic with Firebase
       await signInWithEmailAndPassword(auth, username, password);
       console.log('User signed in successfully');
-      navigate('/home1');
+      navigate('/home');
     } catch (error) {
       console.error('Sign-in error:', error.message);
 
