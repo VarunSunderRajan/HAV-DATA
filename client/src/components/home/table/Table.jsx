@@ -5,6 +5,7 @@ import TableRow from './TableRow';
 import FilterButton from './FilterButton';
 import DownloadButton from './DownloadButton';
 import { getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 
 
@@ -14,11 +15,17 @@ const Table = () => {
   const [sortColumn, setSortColumn] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
   const { getSalesDataForUser } = useContext(CannibasContext);
+  const navigate = useNavigate(); // Define navigate
   const auth = getAuth();
 
   useEffect(() => {
     setData();
   }, []);
+
+  // Define a function to handle navigation
+    const navigateToDashboard = (path) => {
+        navigate(`/dashboard/${encodeURIComponent(path)}`);
+    };
 
   const setData = useCallback(async () => {
     try {
@@ -126,6 +133,7 @@ const Table = () => {
                 salesDate={item.salesdate}
                 salesBrand={item.brand}
                 salesProduct={item.productname}
+                onProductClick={() => navigateToDashboard(index.productname)}
                 salesQuantity={item.quantitysold}
                 salesGross={item.grosssales}
                 salesSKU={item.sku}
@@ -140,5 +148,6 @@ const Table = () => {
     </div>
   );
 };
+
 
 export default Table;
