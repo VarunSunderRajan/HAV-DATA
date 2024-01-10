@@ -3,15 +3,17 @@ import { useParams } from 'react-router-dom';
 import TreeMap from '../components/analytics/TreeMap';
 import LineGraph from '../components/analytics/LineGraph';
 import Table from '../components/home/table/Table';
+import Header from '../components/home/Header';
 
 const AnalyticsPage = () => {
   const { brandOrProduct } = useParams();
 
   return (
     <div className="flex flex-col w-full h-screen overflow-hidden">
-      <header className="bg-gray-100 p-4">
+      <Header/>
+      <div className="bg-gray-100 p-4">
         <h1 className="text-center text-xl font-semibold">Dashboard for {brandOrProduct}</h1>
-      </header>
+      </div>
       <div className="flex-grow overflow-auto p-4">
         {/* Each child div now takes the full width */}
         <div className="mb-4 bg-white shadow rounded-lg p-4 transition-shadow hover:shadow-xl flex justify-center items-center">

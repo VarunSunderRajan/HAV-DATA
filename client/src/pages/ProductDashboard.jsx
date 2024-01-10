@@ -6,6 +6,8 @@ import ComparisonChart from '../components/productdashboard/ComparisonChart';
 // Uncomment these imports if the components are ready
 import InformationTable from '../components/productdashboard/InformationTable';
 
+import Header from '../components/home/Header';
+
 
 const ProductDashboard = () => {
   const { brandOrProduct } = useParams();
@@ -13,9 +15,10 @@ const ProductDashboard = () => {
 
   return (
     <div className="flex flex-col w-full h-screen overflow-hidden">
-      <header className="bg-gray-100 p-4">
+      <Header/>
+      <div className="bg-gray-100 p-4">
         <h1 className="text-center text-xl font-semibold">Dashboard for {brandOrProduct}</h1>
-      </header>
+      </div>
       <div className="flex-grow overflow-auto">
         {/* Divide the remaining space into four equal quadrants */}
         <div className="flex flex-wrap w-full h-full">
