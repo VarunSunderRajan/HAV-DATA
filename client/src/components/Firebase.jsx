@@ -3,24 +3,25 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// import dotenv from 'dotenv';
-// dotenv.config();
+const {
+  VITE_REACT_APP_FIREBASE_API_KEY,
+  VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
+  VITE_REACT_APP_FIREBASE_PROJECT_ID,
+  VITE_REACT_APP_FIREBASE_STORAGE_BUCKET,
+  VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  VITE_REACT_APP_FIREBASE_APP_ID,
+} = import.meta.env;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAq9LXocL8zu4MVzbhhL0ogHRbzOAJODuo",
-  authDomain: "test-project-3320b.firebaseapp.com",
-  projectId: "test-project-3320b",
-  storageBucket: "test-project-3320b.appspot.com",
-  messagingSenderId: "94744173838",
-  appId: "1:94744173838:web:c72efb8885bffaf3944b5f"
+  
+  apiKey: VITE_REACT_APP_FIREBASE_API_KEY,
+  authDomain: VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: VITE_REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: VITE_REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: VITE_REACT_APP_FIREBASE_APP_ID,
 
-//   apiKey: process.env.FIREBASE_API_KEY,
-//   authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-//   projectId: process.env.FIREBASE_PROJECT_ID,
-//   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-//   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-//   appId: process.env.FIREBASE_APP_ID
 };
 
 // Initialize Firebase
