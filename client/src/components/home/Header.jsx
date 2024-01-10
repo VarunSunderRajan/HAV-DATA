@@ -21,7 +21,7 @@ const Header = () => {
     <header className="w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]">
       <Link to="/" className="font-inter font-medium text-black px-4 py-2">HAV DATA LOGO</Link>
       <Link to="/" className="font-inter font-small text-black px-4 py-2 rounded-md">Reports</Link>
-      <Link to="/" className="font-inter font-small text-black px-4 py-2 rounded-md">Analytics</Link>
+      <Link to="/analytics" className="font-inter font-small text-black px-4 py-2 rounded-md">Analytics</Link>
       <Link to="/" className="font-inter font-small text-black px-4 py-2 rounded-md">Learn</Link>
       <button
         className="font-inter font-medium bg-[#6469ff] text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300"

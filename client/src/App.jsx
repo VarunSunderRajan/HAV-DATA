@@ -5,6 +5,7 @@ import SignIn from './pages/SignIn.jsx';
 import Home from './pages/Home.jsx';
 import { CannibasProvider } from './context/context.jsx';
 import ProductDashboard from './pages/ProductDashboard.jsx'
+import AnalyticsPage from './pages/AnalyticsPage.jsx';
 
 const App = () => {
   return (
@@ -13,11 +14,13 @@ const App = () => {
       <CannibasProvider>
 
         <Routes>
+
           <Route path="/" element={<LandingPage />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard/:brandOrProduct" element={<ProductDashboard />} />
-          {/* Add other routes as needed */}
+          <Route path="/analytics" element={<AnalyticsPage />} />
+  
         </Routes>
 
       </CannibasProvider>
