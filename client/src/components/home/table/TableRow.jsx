@@ -1,5 +1,8 @@
 import React from 'react';
 import More from '../../../assets/svg/More';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 
 const styles = {
   tableRow: `text-black border-b border-solid border-gray-200 text-[0.93rem] p-4`, // Add p-4 for padding
@@ -19,6 +22,16 @@ const TableRow = ({
 }) => {
   const formattedDate = new Date(salesDate).toLocaleDateString();
 
+
+  const navigate = useNavigate(); // Define navigate
+
+  const navigateToDashboard = (path) => {
+    navigate(`/dashboard/${encodeURIComponent(path)}`);
+  };
+
+
+
+
   return (
     <tbody className={`${styles.tableRow} ${styles.hoverEffect}`}>
       <tr className='cursor-pointer'>
@@ -33,8 +46,10 @@ const TableRow = ({
         <td className='p-10'> 
           <p>{salesBrand}</p>
         </td>
-        <td className='p-10'> 
+        <td className='p-10'>
+        <Link to={`/dashboard/${encodeURIComponent(salesProduct)}`}>
           <p>{salesProduct}</p>
+        </Link> 
         </td>
         <td className='p-10'> 
           <p>{salesQuantity}</p>

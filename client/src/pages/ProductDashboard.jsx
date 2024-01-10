@@ -9,6 +9,7 @@ import InformationTable from '../components/productdashboard/InformationTable';
 
 const ProductDashboard = () => {
   const { brandOrProduct } = useParams();
+  console.log('Received brandOrProduct:', brandOrProduct);
 
   return (
     <div className="flex flex-col w-full h-screen overflow-hidden">
