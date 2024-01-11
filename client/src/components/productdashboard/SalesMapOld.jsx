@@ -17,22 +17,35 @@ const SalesMap = () => {
 
 
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const salesResponse = await fetch('http://localhost:3002/api/sales');
-      const salesData = await salesResponse.json();
-      const locationResponse = await fetch('http://localhost:3002/api/locations');
-      const locationData = await locationResponse.json();
+    const fetchSalesData = async () => {
+      try {
+        const response = await fetch('http://localhost:3002/api/sales');
+        const data = await response.json();
+        const filteredData = data.filter(item => item.productname === brandOrProduct);
+        setSalesData(filteredData);
+        console.log('Filtered sales data:', filteredData); // Log the filtered sales data
+      } catch (error) {
+        console.error('Error fetching sales data:', error);
+      }
+    };
 
-      setSalesData(salesData.filter(item => item.productname === brandOrProduct));
-      setLocationData(locationData);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
+    const fetchLocationData = async () => {
+      try {
+        const response = await fetch('http://localhost:3002/api/locations');
+        const data = await response.json();
+        setLocationData(data);
+        console.log('Location data:', data); // Log the location data
+      } catch (error) {
+        console.error('Error fetching location data:', error);
+      }
+    };
 
-  fetchData();
-}, [brandOrProduct]);
+
+
+
+    fetchSalesData();
+    fetchLocationData();
+  }, [brandOrProduct]);
 
 // Function to initialize the map
   useEffect(() => {
@@ -84,7 +97,7 @@ const SalesMap = () => {
         map.remove();
       };
     }
-  }, [salesData, locationData]);
+  }, [locationData]);
 
   return <div id="map" className="h-full w-full"></div>;
 };

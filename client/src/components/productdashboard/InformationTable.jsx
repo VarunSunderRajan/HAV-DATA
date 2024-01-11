@@ -7,6 +7,7 @@ const InformationTable = () => {
   const { brandOrProduct } = useParams();
   const [salesData, setSalesData] = useState([]);
   const [locationData, setLocationData] = useState([]);
+  const [mostSoldDate, setMostSoldDate] = useState('');
   const [mostSoldLocation, setMostSoldLocation] = useState('');
 
   useEffect(() => {
@@ -16,6 +17,15 @@ const InformationTable = () => {
         const salesResponse = await fetch(`http://localhost:3002/api/sales`);
         const sales = await salesResponse.json();
         const productSales = sales.filter(item => item.productname === brandOrProduct);
+
+        // Calculate the most sold date
+        const salesByDate = productSales.reduce((acc, sale) => {
+          acc[sale.salesdate] = (acc[sale.salesdate] || 0) + parseInt(sale.quantitysold, 10);
+          return acc;
+        }, {});
+
+        const mostSoldDate = Object.keys(salesByDate).reduce((a, b) => salesByDate[a] > salesByDate[b] ? a : b);
+
         setSalesData(productSales);
 
         // Fetch location data
@@ -32,7 +42,7 @@ const InformationTable = () => {
         const mostSoldLocationId = Object.keys(salesByLocation).reduce((a, b) => salesByLocation[a] > salesByLocation[b] ? a : b);
         const mostSoldLocationName = locations.find(loc => loc.locationid.toString() === mostSoldLocationId).locationname;
         setMostSoldLocation(mostSoldLocationName);
-
+        setMostSoldDate(mostSoldDate);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       }
@@ -71,8 +81,8 @@ const InformationTable = () => {
               <td className="py-4 px-6">{mostSoldLocation}</td>
             </tr>
             <tr className="bg-white border-b">
-              <th className="py-4 px-6 bg-gray-50">Sales Date</th>
-              <td className="py-4 px-6">{new Date(salesData[0].salesdate).toLocaleDateString()}</td>
+              <th className="py-4 px-6 bg-gray-50">Most Sold On</th>
+              <td className="py-4 px-6">{new Date(mostSoldDate).toLocaleDateString()}</td>
             </tr>
           </tbody>
         </table>

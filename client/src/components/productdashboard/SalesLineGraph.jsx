@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar} from 'react-chartjs-2';
 import { useParams } from 'react-router-dom';
 import Chart from 'chart.js/auto';
 import arrowDownSvg from '../../assets/svg/arrow-down.svg';
@@ -40,9 +40,12 @@ const SalesLineGraph = () => {
               location: d.location // Include location
             })),
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            // borderColor: 'rgb(75, 192, 192)',
             tension: 0.1,
             showLine: false,
+            backgroundColor: 'rgb(54, 162, 235)', // Set the background color of the bars to blue
+            borderColor: 'rgb(54, 162, 235)', // Set the border color of the bars to blue (if needed)
+            borderWidth: 1, // Optional: if you want a border for the bars
           },
         ],
       };
@@ -111,7 +114,7 @@ const SalesLineGraph = () => {
       </div>
       <div className="w-full h-full">
         {lineData && lineData.datasets && lineData.datasets.length > 0 ? (
-          <Line data={lineData} options={chartOptions} />
+          <Bar data={lineData} options={chartOptions} />
         ) : (
           <p>No data available for the selected brand or product.</p>
         )}
