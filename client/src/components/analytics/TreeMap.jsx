@@ -1,12 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
+import { getAuth } from 'firebase/auth';
+//import { CannibasContext } from '../../context/context';
+
 
 const TreeMap = ({ width, height }) => {
   const ref = useRef();
   const [rawData, setRawData] = useState([]);
+  //const { getSalesDataForUser } = useContext(CannibasContext);
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
-    fetch('http://localhost:3002/api/sales')
+    const encodedUsername = encodeURIComponent(user.email);
+    fetch(`http://localhost:3001/api/sales?username=${encodedUsername}`)
       .then(response => response.json())
       .then(data => {
         setRawData(data);

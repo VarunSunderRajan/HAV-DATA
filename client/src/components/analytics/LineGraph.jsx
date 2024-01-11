@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import { getAuth } from 'firebase/auth';
 
 const LineGraph = ({ width, height }) => {
   const [lineData, setLineData] = useState({});
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:3002/api/sales`);
+        const encodedUsername = encodeURIComponent(user.email);
+        const response = await fetch(`http://localhost:3001/api/sales?username=${encodedUsername}`);
         const salesData = await response.json();
 
         // Group sales data by location
