@@ -1,11 +1,11 @@
 # HAV v.1
 
-More info goes here
-
+Aggregates data given an API endpoint. Displays tabulated sales information from different companies, their locations and all brands/products under these companies. Filterable by desired state, time filtering will be implemented in v.2 
 
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [API](#api)
 - [Installation](#installation)
 - [Styling](#styling)
 
@@ -19,6 +19,15 @@ More info goes here
 cd ~Desktop/<your_project_name>/client
 
 ```
+
+## API 
+
+- v.1 uses AWS PostgreSQL, AWS S3
+- v.2 will incorperate Mediastack News API (in testing)
+
+API is JSON format, initially parsed with Python ETL. DBeaver used for testing SQL database.
+Can incorperate Python into Node.js backend in v.2
+
 
 ## Installation
 
