@@ -8,7 +8,7 @@ import { getAuth } from 'firebase/auth';
 
 
 
-const Table = () => {
+const Table = ({ limit }) => {
   const [originalData, setOriginalData] = useState(null);
   const [sortedData, setSortedData] = useState(null);
   const [sortColumn, setSortColumn] = useState(null);
@@ -41,7 +41,7 @@ const Table = () => {
 
 
       // Fetch sales data based on the user's username
-      const salesData = await getSalesDataForUser(user.email); // Adjust as per your user data structure
+      const salesData = await getSalesDataForUser(user.email, limit); // Adjust as per your user data structure
       console.log('SalesData:', salesData)
       
 
@@ -61,7 +61,7 @@ const Table = () => {
     } catch (error) {
       console.error(error.message);
     }
-  }, [getSalesDataForUser]);
+  }, [getSalesDataForUser], [limit]);
   
 
 

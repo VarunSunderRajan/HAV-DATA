@@ -30,6 +30,9 @@ client.connect();
 app.get('/api/sales', async (req, res) => {
   try {
     const username = req.query.username;
+    const limit = req.query.limit;
+
+
     console.log('Received username (email):', username);
 
     if (!username) {
@@ -48,7 +51,14 @@ app.get('/api/sales', async (req, res) => {
 
     if (usertype === 'LP') {
       // For "LP" user type, use the original query
-      const lpQuery = 'SELECT * FROM salesnew2 WHERE userid = $1';
+      let lpQuery = 'SELECT * FROM salesnew2 WHERE userid = $1';
+
+      if (limit) {
+        lpQuery += ` ORDER BY grosssales DESC LIMIT ${limit}`;
+      }
+
+
+
       const lpResult = await client.query(lpQuery, [userid]);
       const lpData = lpResult.rows;
       return res.json(lpData);
@@ -56,7 +66,7 @@ app.get('/api/sales', async (req, res) => {
       
     } else if (usertype === 'D') {
       // For "D" user type, use the new query
-      const dQuery = `
+      let dQuery = `
         SELECT s.*
         FROM Salesnew2 s
         JOIN Locationsnew2 l ON s.LocationID = l.LocationID
@@ -65,8 +75,15 @@ app.get('/api/sales', async (req, res) => {
           SELECT CompanyID
           FROM Users u
           WHERE u.Username = $1 AND u.UserType = 'D'
-        );
+        )
+        ${limit ? 'ORDER BY s.grosssales DESC LIMIT ' + limit : ''};
       `;
+
+      // if (limit) {
+      //   dQuery += ` ORDER BY s.grosssales DESC LIMIT ${limit}`;
+      // }
+
+
       const dResult = await client.query(dQuery, [username]);
       const dData = dResult.rows;
       return res.json(dData);

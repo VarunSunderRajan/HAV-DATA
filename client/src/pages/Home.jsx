@@ -33,7 +33,7 @@ const Home = () => {
           <div className='mt-10'/>
             <Trending/>
           <div className='mt-20'/>
-            <Table/>
+            <Table limit={10}/>
 
       </div>
 

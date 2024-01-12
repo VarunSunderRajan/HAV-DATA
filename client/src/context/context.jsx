@@ -6,10 +6,16 @@ export const CannibasContext = createContext()
 export const CannibasProvider = ({children}) => {
 
 
-    const getSalesDataForUser = async (username) => {
+    const getSalesDataForUser = async (username, limit=null) => {
         try {
 
-            const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}`;
+            const encodedUsername = encodeURIComponent(username);
+            const url = `http://localhost:3001/api/sales?username=${encodedUsername}${limit ? `&limit=${limit}` : ''}`;
+
+            //const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}`;
+            //const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}${limit ? `&limit=${limit}` : ''}`;
+            //const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}${limit !== undefined ? `&limit=${limit}` : ''}`;
+
             console.log('Request URL:', url);
 
             const response = await fetch(url);
