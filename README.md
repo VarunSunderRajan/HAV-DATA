@@ -2,6 +2,8 @@
 
 Aggregates data given an API endpoint. Displays tabulated sales information from different companies, their locations and all brands/products under these companies. Filterable by desired state, time filtering will be implemented in v.2 
 
+Core features include trending dashboard with tables, product graphs, brand graphs which include comparison
+
 ## Table of Contents
 
 - [Introduction](#introduction)
