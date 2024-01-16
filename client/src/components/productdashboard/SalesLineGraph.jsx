@@ -17,7 +17,7 @@ const SalesLineGraph = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:3002/api/sales`);
+        const response = await fetch(`http://localhost:3001/api/allsales`);
         const data = await response.json();
         const filteredData = data.filter(item => item.productname === brandOrProduct);
         const dates = filteredData.map(d => new Date(d.salesdate));

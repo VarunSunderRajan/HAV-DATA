@@ -98,6 +98,34 @@ app.get('/api/sales', async (req, res) => {
 });
 
 
+
+app.get('/api/allsales', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * FROM salesnew2');
+    const data = result.rows;
+    res.json(data);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+app.get('/api/alllocations', async (req, res) => {
+  try {
+    const result = await client.query('SELECT * FROM locationsnew2');
+    const data = result.rows;
+    res.json(data);
+  } catch (error) {
+    console.error('Error executing query:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

@@ -28,7 +28,7 @@ const ComparisonChart = () => {
   useEffect(() => {
   async function fetchData() {
     try {
-      const salesResponse = await fetch(`http://localhost:3002/api/sales`);
+      const salesResponse = await fetch(`http://localhost:3001/api/allsales`);
       const salesData = await salesResponse.json();
       const productData = salesData.find(item => item.productname === brandOrProduct);
 

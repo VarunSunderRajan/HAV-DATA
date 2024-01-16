@@ -94,7 +94,7 @@ const SignIn = () => {
       <p className="text-center">
         Don't have an account? Email&nbsp;
         <Link to="" className="text-[#6469ff]">
-          hav@data.com
+          info@havdata.ca
         </Link>
       </p>
     </div>

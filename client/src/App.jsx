@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './style';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage.jsx';
 import SignIn from './pages/SignIn.jsx';
@@ -9,7 +8,8 @@ import ProductDashboard from './pages/ProductDashboard.jsx'
 import AnalyticsPage from './pages/AnalyticsPage.jsx';
 import Reports from './pages/Reports.jsx';
 import Learn from './pages/Learn.jsx';
-import { Billing, Business, CardDeal, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components/LandingPage";
+
+
 const App = () => {
   return (
 
