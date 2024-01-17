@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
+import logo from '../../assets/logo.png';
 
 const Header = () => {
   const auth = getAuth();
@@ -19,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4]">
-      <Link to="/home" className="font-inter font-medium text-black px-4 py-2">HAV DATA LOGO</Link>
+      <Link to="/home" className="font-inter font-medium text-black px-4 py-2"><img src={logo} width="96" height="112" alt="" /></Link>
       <Link to="/reports" className="font-inter font-small text-black px-4 py-2 rounded-md">Reports</Link>
       <Link to="/analytics" className="font-inter font-small text-black px-4 py-2 rounded-md">Analytics</Link>
       <Link to="/learn" className="font-inter font-small text-black px-4 py-2 rounded-md">Learn</Link>

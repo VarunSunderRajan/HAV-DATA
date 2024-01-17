@@ -19,9 +19,9 @@ function HeroHome() {
         <svg width="1360" height="578" viewBox="0 0 1360 578" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="illustration-01">
-              <stop stopColor="#4FD1C5" offset="40%" />
-              <stop stopColor="#EAEAEA" offset="77.402%" />
-              <stop stopColor="#DFDFDF" offset="100%" />
+              <stop stopColor="#4FD1C5" offset="0%" />
+              <stop stopColor="#81E6D9" offset="25.871%" />
+              <stop stopColor="#338CF5" offset="100%" />
             </linearGradient>
           </defs>
           <g fill="url(#illustration-01)" fillRule="evenodd">
@@ -90,12 +90,6 @@ function HeroHome() {
               </div>
               <button
                 className="absolute top-full flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setVideoModalOpen(true);
-                }}
-                aria-controls="modal"
               >
                 <svg
                   className="w-6 h-6 fill-current text-gray-400 group-hover:text-blue-600 flex-shrink-0"
