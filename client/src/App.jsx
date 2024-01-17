@@ -8,6 +8,7 @@ import ProductDashboard from './pages/ProductDashboard.jsx'
 import AnalyticsPage from './pages/AnalyticsPage.jsx';
 import Reports from './pages/Reports.jsx';
 import Learn from './pages/Learn.jsx';
+import Test from './pages/Test.jsx';
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
         <Routes>
 
           <Route path="/" element={<LandingPage />} />
+          <Route path="/test" element={<Test />} />
+          
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/home" element={<Home />} />
           <Route path="/dashboard/:brandOrProduct" element={<ProductDashboard />} />
