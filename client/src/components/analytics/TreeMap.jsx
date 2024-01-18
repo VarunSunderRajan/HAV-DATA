@@ -13,7 +13,7 @@ const TreeMap = ({ width, height }) => {
 
   useEffect(() => {
     const encodedUsername = encodeURIComponent(user.email);
-    fetch(`http://localhost:3001/api/sales?username=${encodedUsername}`)
+    fetch(`https://havdata-ed0m.onrender.com/api/sales?username=${encodedUsername}`)
       .then(response => response.json())
       .then(data => {
         setRawData(data);

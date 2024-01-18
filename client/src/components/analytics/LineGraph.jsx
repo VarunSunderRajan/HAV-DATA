@@ -12,7 +12,7 @@ const LineGraph = ({ width, height }) => {
     async function fetchData() {
       try {
         const encodedUsername = encodeURIComponent(user.email);
-        const response = await fetch(`http://localhost:3001/api/sales?username=${encodedUsername}`);
+        const response = await fetch(`https://havdata-ed0m.onrender.com/api/sales?username=${encodedUsername}`);
         const salesData = await response.json();
 
         // Group sales data by location

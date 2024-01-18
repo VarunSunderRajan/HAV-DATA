@@ -14,7 +14,7 @@ const InformationTable = () => {
     async function fetchSalesAndLocationData() {
       try {
         // Fetch sales data
-        const salesResponse = await fetch(`http://localhost:3001/api/allsales`);
+        const salesResponse = await fetch(`https://havdata-ed0m.onrender.com/api/allsales`);
         const sales = await salesResponse.json();
         const productSales = sales.filter(item => item.productname === brandOrProduct);
 
@@ -29,7 +29,7 @@ const InformationTable = () => {
         setSalesData(productSales);
 
         // Fetch location data
-        const locationsResponse = await fetch(`http://localhost:3001/api/alllocations`);
+        const locationsResponse = await fetch(`https://havdata-ed0m.onrender.com/api/alllocations`);
         const locations = await locationsResponse.json();
         setLocationData(locations);
 

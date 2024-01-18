@@ -4,9 +4,16 @@ import Modal from '../utils/Modal';
 import HeroImage from '../images/hero-image.png';
 import one from '../images/1.png';
 
+import v1 from '../videos/video1.mp4';
+
 function HeroHome() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const video = useRef(null);
+  const video = useRef();
+
+
+  
+  
+  
 
   useEffect(() => {
     videoModalOpen ? video.current.play() : video.current.pause();
@@ -90,6 +97,12 @@ function HeroHome() {
               </div>
               <button
                 className="absolute top-full flex items-center transform -translate-y-1/2 bg-white rounded-full font-medium group p-4 shadow-lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setVideoModalOpen(true);
+                }}
+                aria-controls="modal"
               >
                 <svg
                   className="w-6 h-6 fill-current text-gray-400 group-hover:text-blue-600 flex-shrink-0"
@@ -107,7 +120,7 @@ function HeroHome() {
             <Modal id="modal" ariaLabel="modal-headline" show={videoModalOpen} handleClose={() => setVideoModalOpen(false)}>
               <div className="relative pb-9/16">
                 <video ref={video} className="absolute w-full h-full" width="1920" height="1080" loop autoPlay controls>
-                  <source src="/videos/video.mp4" type="video/mp4" />
+                  <source src={v1} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

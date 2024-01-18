@@ -10,7 +10,7 @@ export const CannibasProvider = ({children}) => {
         try {
 
             const encodedUsername = encodeURIComponent(username);
-            const url = `http://localhost:3001/api/sales?username=${encodedUsername}${limit ? `&limit=${limit}` : ''}`;
+            const url = `https://havdata-ed0m.onrender.com/api/sales?username=${encodedUsername}${limit ? `&limit=${limit}` : ''}`;
 
             //const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}`;
             //const url = `http://localhost:3001/api/sales?username=${encodeURIComponent(username)}${limit ? `&limit=${limit}` : ''}`;

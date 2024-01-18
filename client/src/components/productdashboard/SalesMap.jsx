@@ -19,9 +19,9 @@ const SalesMap = () => {
   useEffect(() => {
   const fetchData = async () => {
     try {
-      const salesResponse = await fetch('http://localhost:3001/api/allsales');
+      const salesResponse = await fetch('https://havdata-ed0m.onrender.com/api/allsales');
       const salesData = await salesResponse.json();
-      const locationResponse = await fetch('http://localhost:3001/api/alllocations');
+      const locationResponse = await fetch('https://havdata-ed0m.onrender.com/api/alllocations');
       const locationData = await locationResponse.json();
 
       setSalesData(salesData.filter(item => item.productname === brandOrProduct));
