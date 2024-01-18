@@ -6,7 +6,7 @@ const Learn = () => {
     <div>
       <Header/>
         <div className="flex flex-col justify-center items-center h-screen">
-          <h1 className="text-2xl font-aesthetic">customizable to user</h1>
+          <h1 className="text-2xl font-aesthetic">A marketplace of information that connects the distributors to the producers. Fully customizable, and coming soon.</h1>
         </div>
       
       
