@@ -88,6 +88,10 @@ const SignIn = () => {
           <p className="text-red-500 text-sm mt-2">{errorMessage}</p>
         )}
 
+        <Link to="/" className="block text-center mt-4 text-[#6469ff] hover:underline">
+          Go Back
+        </Link>
+
 
       </div>
 
