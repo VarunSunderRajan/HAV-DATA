@@ -5,7 +5,9 @@ const Learn = () => {
   return (
     <div>
       <Header/>
-      Learn 
+        <div className="flex flex-col justify-center items-center h-screen">
+          <h1 className="text-2xl font-aesthetic">customizable to user</h1>
+        </div>
       
       
     </div>
