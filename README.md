@@ -10,6 +10,7 @@ Core features include trending dashboard with tables, product graphs, brand grap
 - [API](#api)
 - [Installation](#installation)
 - [Styling](#styling)
+- [Testing](#testing)
 
 ## Introduction
 
@@ -84,3 +85,8 @@ project-root/client
 │   └── ...
 └── ...
 ```
+
+## Testing
+
+Testing frameworks include Jest, Selenium Nightwatch.js and Cucumber 
+Further custom tests for Python can be applied (PyTest, Robot etc)
